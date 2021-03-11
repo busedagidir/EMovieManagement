@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="admindirectormanagement.aspx" />
     <Content Include="adminlogin.aspx" />
+    <Content Include="adminmovieissuing.aspx" />
     <Content Include="adminproducermanagement.aspx" />
     <Content Include="Bootstrap\css\bootstrap.min.css" />
     <Content Include="Bootstrap\js\bootstrap.min.js" />
@@ -1766,6 +1767,13 @@
     </Compile>
     <Compile Include="adminlogin.aspx.designer.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminmovieissuing.aspx.cs">
+      <DependentUpon>adminmovieissuing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminmovieissuing.aspx.designer.cs">
+      <DependentUpon>adminmovieissuing.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminproducermanagement.aspx.cs">
       <DependentUpon>adminproducermanagement.aspx</DependentUpon>

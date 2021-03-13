@@ -50,7 +50,7 @@
                             <div class="col-md-6">
                                 <label>Contact Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Full Name" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Contact Number" TextMode="Number"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -135,7 +135,7 @@
                             <div class="col">
                                 <label></label>
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Sign Up" />
+                                    <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Sign Up" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>

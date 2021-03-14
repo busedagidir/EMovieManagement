@@ -42,7 +42,7 @@
 
                                 <label></label>
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Login" />
+                                    <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
                                 </div>
                                 <label></label>
                                 <div class="form-group">

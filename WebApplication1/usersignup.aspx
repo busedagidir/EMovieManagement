@@ -33,7 +33,7 @@
                             <div class="col-md-6">
                                 <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Full Name" ></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Full Name" OnTextChanged="TextBox1_TextChanged" ></asp:TextBox>
                                 </div>
                             </div>
 

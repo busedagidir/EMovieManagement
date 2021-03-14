@@ -10,6 +10,8 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
+    
+
     public partial class usersignup : System.Web.UI.Page
     {
 
@@ -32,8 +34,6 @@ namespace WebApplication1
             {
                 SignUpNewMember();
             }
-            
-
         }
 
 
@@ -92,7 +92,7 @@ namespace WebApplication1
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM member_master_tbl WHERE member_id='"+ TextBox5.Text.Trim() +"' ", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM member_master_tbl WHERE member_id='"+ TextBox5.Text.Trim() +"';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -106,7 +106,6 @@ namespace WebApplication1
                     return false;
                 }
 
-
                 con.Close();
 
                 Response.Write("<script>alert('Sign Up successful. Go to User Login to Login');</script>");
@@ -118,5 +117,6 @@ namespace WebApplication1
                 return false;
             }
         }
+
     }
 }

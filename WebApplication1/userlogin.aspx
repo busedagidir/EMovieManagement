@@ -46,7 +46,8 @@
                                 </div>
                                 <label></label>
                                 <div class="form-group">
-                                    <a href="usersignup.aspx"><input class="btn btn-primary w-100 btn-lg" id="Button2" type="button" value="Sign Up" /></a>
+                                    <!--<asp:Button class="btn btn-primary w-100 btn-lg" ID="Button2" runat="server" Text="Sign Up" OnClick="Button2_Click" />-->
+                                    <a href="usersignup.aspx"><input class="btn btn-primary w-100 btn-lg" id="Button2" type="button" value="Sign Up" /></a> 
                                 
                                 </div>
                             </div>

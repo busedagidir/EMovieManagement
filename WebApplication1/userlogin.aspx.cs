@@ -38,8 +38,14 @@ namespace WebApplication1
                 {
                     while (dr.Read())
                     {
-                        Response.Write("<script>alert('"+dr.GetValue(8).ToString() +"');</script>"); 
+                        Response.Write("<script>alert('Login Successful');</script>");
+                        //Session Variables
+                        Session["username"] = dr.GetValue(8).ToString();
+                        Session["fullname"] = dr.GetValue(0).ToString();
+                        Session["role"] = "user";
+                        Session["status"] = dr.GetValue(10).ToString();
                     }
+                    Response.Redirect("homepage.aspx");
                 }
                 else
                 {
@@ -50,8 +56,14 @@ namespace WebApplication1
             }
             catch(Exception ex)
             {
-
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
+        }
+
+        //Sign Up button Click event
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

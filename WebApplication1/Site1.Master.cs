@@ -130,6 +130,9 @@ namespace WebApplication1
             LinkButton8.Visible = false; //movie inventory link button
             LinkButton9.Visible = false; //movie issuing link button
             LinkButton10.Visible = false; //member management link button
+
+
+            Response.Redirect("homepage.aspx");
         }
     }
 }

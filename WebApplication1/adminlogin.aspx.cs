@@ -30,8 +30,9 @@ namespace WebApplication1
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand(" SELECT * FROM admin_login_tbl WHERE username='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "' ", con);
+                SqlCommand cmd = new SqlCommand(" SELECT * FROM admin_login_tbl WHERE username='" + TextBox1.Text.Trim() + "' AND pasword='" + TextBox2.Text.Trim() + "' ", con);
                 SqlDataReader dr = cmd.ExecuteReader();
+                Console.WriteLine("giris oldu");
                 if (dr.HasRows)
                 {
                     while (dr.Read())
@@ -52,9 +53,18 @@ namespace WebApplication1
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('"+ ex.Message+"');</script>");
+
             }
         }
 
+        protected void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

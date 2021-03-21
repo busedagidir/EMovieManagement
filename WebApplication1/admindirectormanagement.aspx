@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="admindirectormanagement.aspx.cs" Inherits="WebApplication1.admindirectormanagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+        });
+
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -48,7 +56,7 @@
                         <br />
 
 
-                        <!-- Add-Update-Delete buttons -->
+
                         <div class="row">
                             <div class="col-4">
                                 <asp:Button ID="Button2" CssClass="btn btn-lg w-100 btn-success" runat="server" Text="Add" OnClick="Button2_Click" />
@@ -94,6 +102,7 @@
                        
 
                         <div class="row">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:emovieDBConnectionString %>" SelectCommand="SELECT * FROM [director_master_tbl]"></asp:SqlDataSource>
                             <div class="col">
                                 <hr>
                             </div>
@@ -102,7 +111,12 @@
 
                         <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="director_id" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="director_id" HeaderText="director_id" ReadOnly="True" SortExpression="director_id" />
+                                        <asp:BoundField DataField="director_name" HeaderText="director_name" SortExpression="director_name" />
+                                    </Columns>
+                                </asp:GridView>
 
                             </div>
                         </div>

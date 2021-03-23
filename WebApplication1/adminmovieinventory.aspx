@@ -1,6 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminmovieinventory.aspx.cs" Inherits="WebApplication1.adminmovieinventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgview').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -24,13 +37,13 @@
 
                         <div class="row">
                             <div class="col">
-                                <center><img width="75px" src="images/image_part_016.jpg" /></center>
+                                <center><img id="imgview" height="150" width="100px" src="movie_inventory/image_part_016.jpg" /></center>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
-                                <asp:FileUpload class="form-control" ID="FileUpload1" runat="server" />
+                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server" />
                             </div>
                         </div>
 
@@ -49,7 +62,7 @@
                             <div class="col-md-8">
                                 <label>Movie Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Movie Name" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Movie Name"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -190,15 +203,15 @@
                         <!-- Add-Update-Delete buttons -->
                         <div class="row">
                             <div class="col-4 mx-auto">
-                                <asp:Button ID="Button2" CssClass="btn btn-lg w-100 btn-outline-success" runat="server" Text="Add"/>
+                                <asp:Button ID="Button2" CssClass="btn btn-lg w-100 btn-outline-success" runat="server" Text="Add" OnClick="Button2_Click"/>
                             </div>
 
                             <div class="col-4 mx-auto">
-                                <asp:Button ID="Button3" CssClass="btn btn-lg w-100 btn-outline-warning" runat="server" Text="Update"/>
+                                <asp:Button ID="Button3" CssClass="btn btn-lg w-100 btn-outline-warning" runat="server" Text="Update" OnClick="Button3_Click"/>
                             </div>
 
                             <div class="col-4 mx-auto">
-                                <asp:Button ID="Button4" CssClass="btn btn-lg w-100 btn-outline-danger" runat="server" Text="Delete"/>
+                                <asp:Button ID="Button4" CssClass="btn btn-lg w-100 btn-outline-danger" runat="server" Text="Delete" OnClick="Button4_Click"/>
                             </div>
                         </div>
 
@@ -241,8 +254,25 @@
 
                         <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
-
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:emovieDBConnectionString %>" SelectCommand="SELECT * FROM [movie_master_tbl]"></asp:SqlDataSource>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="movie_id" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="movie_id" HeaderText="movie_id" ReadOnly="True" SortExpression="movie_id" />
+                                        <asp:BoundField DataField="movie_name" HeaderText="movie_name" SortExpression="movie_name" />
+                                        <asp:BoundField DataField="genre" HeaderText="genre" SortExpression="genre" />
+                                        <asp:BoundField DataField="director_name" HeaderText="director_name" SortExpression="director_name" />
+                                        <asp:BoundField DataField="producer_name" HeaderText="producer_name" SortExpression="producer_name" />
+                                        <asp:BoundField DataField="publish_date" HeaderText="publish_date" SortExpression="publish_date" />
+                                        <asp:BoundField DataField="language" HeaderText="language" SortExpression="language" />
+                                        <asp:BoundField DataField="edition" HeaderText="edition" SortExpression="edition" />
+                                        <asp:BoundField DataField="movie_cost" HeaderText="movie_cost" SortExpression="movie_cost" />
+                                        <asp:BoundField DataField="duration" HeaderText="duration" SortExpression="duration" />
+                                        <asp:BoundField DataField="movie_description" HeaderText="movie_description" SortExpression="movie_description" />
+                                        <asp:BoundField DataField="actual_stock" HeaderText="actual_stock" SortExpression="actual_stock" />
+                                        <asp:BoundField DataField="current_stock" HeaderText="current_stock" SortExpression="current_stock" />
+                                        <asp:BoundField DataField="movie_img_link" HeaderText="movie_img_link" SortExpression="movie_img_link" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
 

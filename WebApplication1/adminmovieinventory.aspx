@@ -2,6 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.table').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+        });
+
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -257,20 +263,65 @@
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:emovieDBConnectionString %>" SelectCommand="SELECT * FROM [movie_master_tbl]"></asp:SqlDataSource>
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="movie_id" DataSourceID="SqlDataSource1">
                                     <Columns>
-                                        <asp:BoundField DataField="movie_id" HeaderText="movie_id" ReadOnly="True" SortExpression="movie_id" />
-                                        <asp:BoundField DataField="movie_name" HeaderText="movie_name" SortExpression="movie_name" />
-                                        <asp:BoundField DataField="genre" HeaderText="genre" SortExpression="genre" />
-                                        <asp:BoundField DataField="director_name" HeaderText="director_name" SortExpression="director_name" />
-                                        <asp:BoundField DataField="producer_name" HeaderText="producer_name" SortExpression="producer_name" />
-                                        <asp:BoundField DataField="publish_date" HeaderText="publish_date" SortExpression="publish_date" />
-                                        <asp:BoundField DataField="language" HeaderText="language" SortExpression="language" />
-                                        <asp:BoundField DataField="edition" HeaderText="edition" SortExpression="edition" />
-                                        <asp:BoundField DataField="movie_cost" HeaderText="movie_cost" SortExpression="movie_cost" />
-                                        <asp:BoundField DataField="duration" HeaderText="duration" SortExpression="duration" />
-                                        <asp:BoundField DataField="movie_description" HeaderText="movie_description" SortExpression="movie_description" />
-                                        <asp:BoundField DataField="actual_stock" HeaderText="actual_stock" SortExpression="actual_stock" />
-                                        <asp:BoundField DataField="current_stock" HeaderText="current_stock" SortExpression="current_stock" />
-                                        <asp:BoundField DataField="movie_img_link" HeaderText="movie_img_link" SortExpression="movie_img_link" />
+                                        <asp:BoundField DataField="movie_id" HeaderText="ID" ReadOnly="True" SortExpression="movie_id" >
+                                       
+                                        <ControlStyle Font-Bold="True" />
+                                        </asp:BoundField>
+                                       
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <div class="container-fluid">  
+                                                    <div class="row">
+                                                        <div class="col-lg-10">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("movie_name") %>' Font-Bold="True" Font-Size="Large"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Director-<asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("director_name") %>'></asp:Label>
+                                                                    &nbsp;| Genre-<asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("genre") %>'></asp:Label>
+                                                                    &nbsp;| Language-<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("language") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Producer-<asp:Label ID="Label5" runat="server" Font-Bold="True" Text='<%# Eval("producer_name") %>'></asp:Label>
+                                                                    &nbsp;| Publish Date-<asp:Label ID="Label6" runat="server" Font-Bold="True" Text='<%# Eval("publish_date") %>'></asp:Label>
+                                                                    &nbsp;| Duration-<asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("duration") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Cost-<asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("movie_cost") %>'></asp:Label>
+                                                                    &nbsp;| Actual Stock-<asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("actual_stock") %>'></asp:Label>
+                                                                    &nbsp;| Available Stock-<asp:Label ID="Label10" runat="server" Font-Bold="True" Text='<%# Eval("current_stock") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Description-<asp:Label ID="Label11" runat="server" Font-Bold="False" Font-Italic="True" Text='<%# Eval("movie_description") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2">
+                                                            <asp:Image class="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("movie_img_link") %>' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                       
                                     </Columns>
                                 </asp:GridView>
                             </div>

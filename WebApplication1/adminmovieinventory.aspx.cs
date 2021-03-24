@@ -123,7 +123,7 @@ namespace WebApplication1
             }
         }
 
-
+        // fonk duzgun calismiyor. tekrar bak
         void AddNewMovie()
         {
             try
@@ -147,8 +147,8 @@ namespace WebApplication1
                 }
 
                 SqlCommand cmd = new SqlCommand("INSERT INTO movie_master_tbl (movie_id, movie_name, genre, director_name, " +
-                    "producer_name, publish_date, language, movie_cost, duration,movie_description,actual_stock,current_stock,movie_img_link)" +
-                    "VALUES (@movie_id, @movie_name, @genre, @director_name,@producer_name, @publish_date, @language" +
+                    "producer_name, publish_date, language, year, movie_cost, duration,movie_description,actual_stock,current_stock,movie_img_link)" +
+                    "VALUES (@movie_id, @movie_name, @genre, @director_name,@producer_name, @publish_date, @language, @year, " +
                     "@movie_cost, @duration,@movie_description,@actual_stock,@current_stock,@movie_img_link)", con);
 
                 cmd.Parameters.AddWithValue("@movie_id", TextBox2.Text.Trim());
@@ -158,9 +158,9 @@ namespace WebApplication1
                 cmd.Parameters.AddWithValue("@director_name", DropDownList3.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@producer_name", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@publish_date", TextBox6.Text.Trim());
-                cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
-                //cmd.Parameters.AddWithValue("@edition", TextBox9.Text.Trim());
-                cmd.Parameters.AddWithValue("@movie_cost", TextBox8.Text.Trim());
+                cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);  //Must declare the scalar variable "@language@movie_cost".
+                cmd.Parameters.AddWithValue("@year", TextBox9.Text.Trim());
+                cmd.Parameters.AddWithValue("@movie_cost", TextBox8.Text.Trim());           //Must declare the scalar variable "@language@movie_cost".
                 cmd.Parameters.AddWithValue("@duration", TextBox9.Text.Trim());
                 cmd.Parameters.AddWithValue("@movie_description", TextBox10.Text.Trim());
                 cmd.Parameters.AddWithValue("@actual_stock", TextBox1.Text.Trim());

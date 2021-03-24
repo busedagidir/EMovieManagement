@@ -3,7 +3,7 @@
 
         <script type="text/javascript">
         $(document).ready(function () {
-            $('.table').prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+            $('.table').prepend($("<thead></thead>").append($(this).find("tr:first"))).SataTable();  //DataTable() dı onceden
         });
         </script>
 

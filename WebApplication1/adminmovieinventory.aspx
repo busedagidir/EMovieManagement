@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminmovieinventory.aspx.cs" Inherits="WebApplication1.adminmovieinventory" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminmovieinventory.aspx.cs" Inherits="WebApplication1.adminmovieinventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
@@ -231,7 +231,7 @@
 
 
 
-            <!-- Member List -->
+            <!-- Movie List -->
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
